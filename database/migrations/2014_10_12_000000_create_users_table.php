@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->bigInteger('phone')->nullable();
-            $table->string('addres');
+            $table->string('address');
             $table->boolean('is_active')->comment('0 => In active,  1 => Active')->default(0);
             $table->rememberToken();
             $table->timestamps();

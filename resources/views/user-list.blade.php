@@ -9,28 +9,31 @@
 </head>
 <body>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
+    <div class="container">
+        <a class="btn btn-primary" style="float: right;" href="{{ url('logout') }}">Logout</a>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->gender }}</td>
-                    <td>{{ isset($user->phone) ? $user->phone : '-' }}</td>
-                    <td>{{ $user->addres }}</td>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Address</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->gender }}</td>
+                        <td>{{ isset($user->phone) ? $user->phone : '-' }}</td>
+                        <td>{{ $user->addres }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>

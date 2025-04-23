@@ -4,19 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index()
     {
-        // jika membutuhkan semua data
-        $users = User::all();
-        // dd($users->toArray());
-
-        // jika membutuhkan data filter
-        // $users = User::get();
-
-        return view('user-list' , compact('users'));
+        $user = Auth::user();
+        if($user)
+        {
+            // jika membutuhkan semua data
+            $users = User::all();
+            // dd($users->toArray());
+    
+            // jika membutuhkan data filter
+            // $users = User::get();
+    
+            return view('user-list' , compact('users'));
+        } else {
+            return redirect('/');
+        }
         
     }
 
@@ -61,8 +68,15 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::where('id', $id)->first();
 
-        dd($user->toArray());
+        if (Auth::user())
+        {
+            $user = User::where('id', $id)->first();
+    
+            dd($user->toArray());
+
+        } else {
+            return redirect('/');
+        }
     }
 }

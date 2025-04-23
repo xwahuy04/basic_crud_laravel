@@ -47,7 +47,7 @@
                         <input class="form-check-input" type="checkbox"> Remember me
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>
